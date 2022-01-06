@@ -8,8 +8,8 @@ import CKCustomMUIDialog from './CKCustomMUIDialog';
 function App() {
   return (
     <div >
-            {/* <CKClassic /> */}
-            {/* <CKCustom /> */}
+            {/* <CKClassic />
+            <CKCustom /> */}
             <CKCustomMUIDialog />
     </div>
   );
