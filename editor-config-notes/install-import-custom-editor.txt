@@ -1,0 +1,13 @@
+Docs: https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/react.html
+Online builder:https://ckeditor.com/ckeditor-5/online-builder/
+
+After downloading build, extract file next to node-modules.
+
+run: yarn add file:./ckeditor5
+
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
+import { CKEditor } from '@ckeditor/ckeditor5-react'
+
+
+To remove:
+yarn remove ckeditor5-custom-build
