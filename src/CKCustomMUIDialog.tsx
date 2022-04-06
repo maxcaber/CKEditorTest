@@ -7,6 +7,19 @@ import './App.css';
 const CKCustomMUIDialog = () => {
     const [text, setText] = useState('');
     const [isVisible, setIsVisible] = useState(false);
+
+    const editHTML = () =>{
+        const newHtml = text.replace("<ul>", "<ul type='a'>" )
+        setText(newHtml);
+        console.log('called edit')
+
+    }
+
+    const closeDialog = () =>{
+        setIsVisible(false);
+        setTimeout(editHTML,2000)
+    }
+
     return (
         <div>
             <style>
@@ -15,6 +28,7 @@ const CKCustomMUIDialog = () => {
                 `}
             </style>
             <Button onClick={() => setIsVisible(true)}>Show Dialog</Button>
+            <Button onClick={() => editHTML()}>Edit HTML</Button>
             <Dialog open={isVisible} onClose={() => setIsVisible(false)} maxWidth='lg' fullWidth disableEnforceFocus >
                 <DialogTitle>Test Editor</DialogTitle>
                 <DialogContent style={{ minHeight: 300 }}>
@@ -26,12 +40,15 @@ const CKCustomMUIDialog = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => setIsVisible(false)}>Close</Button>
+                    <Button onClick={() =>{closeDialog()}}>Close</Button>
                 </DialogActions>
             </Dialog>
 
 
             <div >
+            <h2>Raw HTML</h2>
+            <div>{text}</div>
+                <h2>Rendered HTML</h2>
                 <span dangerouslySetInnerHTML={{ __html: (text) }} />
             </div>
 
